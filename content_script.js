@@ -7,10 +7,11 @@
     let changed = false;
     try{
       if(!el || el.nodeType !== 1) return;
+      const isMetadataPath = s => typeof s === 'string' && s.indexOf('/_metadata/') !== -1;
 
       if(el.hasAttribute && el.hasAttribute('src')){
         const v = el.getAttribute('src');
-        if(v && v.includes(FROM)){
+        if(v && !isMetadataPath(v) && v.includes(FROM)){
           el.setAttribute('src', simpleReplace(v));
           changed = true;
         }
@@ -18,7 +19,7 @@
 
       if(el.hasAttribute && el.hasAttribute('srcset')){
         const v = el.getAttribute('srcset');
-        if(v && v.includes(FROM)){
+        if(v && !isMetadataPath(v) && v.includes(FROM)){
           el.setAttribute('srcset', simpleReplace(v));
           changed = true;
         }
@@ -27,7 +28,7 @@
       ['data-src','data-original','data-lazy'].forEach(attr=>{
         if(el.hasAttribute && el.hasAttribute(attr)){
           const v = el.getAttribute(attr);
-          if(v && v.includes(FROM)){
+          if(v && !isMetadataPath(v) && v.includes(FROM)){
             el.setAttribute(attr, simpleReplace(v));
             changed = true;
           }
@@ -37,14 +38,14 @@
       // style attribute (inline)
       if(el.getAttribute && el.getAttribute('style')){
         const s = el.getAttribute('style');
-        if(s && s.includes(FROM)){
+        if(s && !isMetadataPath(s) && s.includes(FROM)){
           el.setAttribute('style', simpleReplace(s));
           changed = true;
         }
       }
 
       // computed style background-image (only inline will prevent a network hit)
-      if(el.style && el.style.backgroundImage && el.style.backgroundImage.includes(FROM)){
+      if(el.style && el.style.backgroundImage && !isMetadataPath(el.style.backgroundImage) && el.style.backgroundImage.includes(FROM)){
         el.style.backgroundImage = simpleReplace(el.style.backgroundImage);
         changed = true;
       }
