@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://cardcdn.buriedgiantstudios.com$1"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https://ledercardcdn\\.seiyria\\.com(/cards/.*)$",
+      "resourceTypes": ["image", "main_frame", "sub_frame"]
+    }
+  }
+]

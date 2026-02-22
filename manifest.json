@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Void Chronicler's Image Redirect",
+  "version": "1.0",
+  "description": "Redirect images from ledercardcdn.seiyria.com to cardcdn.buriedgiantstudios.com",
+  "action": { "default_title": "Void Chronicler's Image Redirect" },
+  "permissions": ["declarativeNetRequest"],
+  "host_permissions": [
+    "https://ledercardcdn.seiyria.com/*",
+    "https://cardcdn.buriedgiantstudios.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
+
+
