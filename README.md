@@ -1,6 +1,6 @@
 # Void Chronicler's Image Redirect (extension for Chromium browsers (Chrome, Edge, Brave))
 
-Void Chronicler's Image Redirect redirects image requests from:
+Redirects image requests from:
 
 - https://ledercardcdn.seiyria.com/cards/.../*.webp
 
