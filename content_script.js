@@ -90,11 +90,11 @@ function showRedirectToast(){
     if(!el){
       el = document.createElement('div');
       el.id = id;
-      el.textContent = 'Redirected';
+      el.textContent = 'Redirected images';
       Object.assign(el.style, {
         position: 'fixed',
         right: '16px',
-        bottom: '16px',
+        top: '16px',
         background: 'rgba(0,0,0,0.8)',
         color: '#fff',
         padding: '8px 12px',

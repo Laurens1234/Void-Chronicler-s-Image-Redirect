@@ -5,6 +5,7 @@
   "description": "Redirect images from ledercardcdn.seiyria.com to cardcdn.buriedgiantstudios.com",
   "action": { "default_title": "Void Chronicler's Image Redirect" },
   "permissions": ["declarativeNetRequest"],
+  "icons": { "128": "icons/128.png" },
   "host_permissions": [
     "https://ledercardcdn.seiyria.com/*",
     "https://cardcdn.buriedgiantstudios.com/*"
